@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+@layer components {
+  .ice-card {
+    @apply bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 p-6 border border-stone-100 cursor-pointer;
+  }
+  
+  .ice-card.selected {
+    @apply ring-4 ring-amber-400 bg-gradient-to-br from-amber-50 to-orange-50 shadow-2xl scale-105;
+  }
+  
+  .ice-flavor-card {
+    @apply bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 p-6 border-2 border-stone-100 cursor-pointer relative overflow-hidden;
+  }
+  
+  .ice-flavor-card.selected {
+    @apply ring-4 ring-amber-400 bg-gradient-to-br from-amber-50 to-orange-50 shadow-2xl scale-105 border-amber-300;
+  }
+  
+  .ice-flavor-card::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 transition-opacity duration-300;
+  }
+  
+  .ice-flavor-card:hover::before {
+    @apply opacity-100;
+  }
+  
+  .gradient-bg {
+    background: linear-gradient(135deg, #FEF7ED 0%, #FED7AA 25%, #FDBA74 50%, #FB923C 75%, #F97316 100%);
+  }
+  
+  .glass-effect {
+    @apply backdrop-blur-sm bg-white/95 border border-stone-200/50 shadow-lg;
+  }
+
+  .calculator-button {
+    @apply w-16 h-16 bg-white border-2 border-stone-300 rounded-lg text-xl font-semibold text-stone-700 hover:bg-stone-50 hover:border-stone-400 transition-all duration-200 active:scale-95;
+  }
+
+  .calculator-button.number {
+    @apply hover:bg-amber-50 hover:border-amber-400 hover:text-amber-700;
+  }
+
+  .calculator-button.operator {
+    @apply bg-orange-400 text-white border-orange-400 hover:bg-orange-500 hover:border-orange-500;
+  }
+
+  .calculator-button.clear {
+    @apply bg-red-400 text-white border-red-400 hover:bg-red-500 hover:border-red-500;
+  }
+
+  .calculator-button.equals {
+    @apply bg-green-400 text-white border-green-400 hover:bg-green-500 hover:border-green-500;
+  }
+
+  .professional-header {
+    @apply bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 text-white shadow-lg;
+  }
+
+  .flavor-icon-large {
+    @apply w-20 h-20 rounded-full flex items-center justify-center text-4xl shadow-lg transform transition-transform duration-300;
+  }
+
+  .flavor-icon-large:hover {
+    @apply scale-110;
+  }
+
+  /* Enhanced delete button styling */
+  .delete-button-enhanced {
+    @apply bg-gradient-to-br from-red-400 to-red-500 text-white rounded-full p-2 shadow-lg hover:from-red-500 hover:to-red-600 transition-all duration-300 transform hover:scale-110;
+  }
+}
